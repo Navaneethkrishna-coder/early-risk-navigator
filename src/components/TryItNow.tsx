@@ -8,6 +8,13 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Slider } from "@/components/ui/slider";
 import { AlertTriangle, Activity, BarChart3 } from "lucide-react";
 
+interface RiskResults {
+  heartDisease: string;
+  kidneyDisease: string;
+  asthma: string;
+  skinCancer: string;
+}
+
 const TryItNow = () => {
   const [formData, setFormData] = useState({
     bmi: '',
@@ -19,7 +26,7 @@ const TryItNow = () => {
     sex: ''
   });
 
-  const [results, setResults] = useState(null);
+  const [results, setResults] = useState<RiskResults | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleInputChange = (field: string, value: string | number[]) => {
@@ -32,7 +39,7 @@ const TryItNow = () => {
     
     // Simulate API call - replace with actual backend integration
     setTimeout(() => {
-      const mockResults = {
+      const mockResults: RiskResults = {
         heartDisease: Math.random() > 0.7 ? 'High' : Math.random() > 0.4 ? 'Moderate' : 'Low',
         kidneyDisease: Math.random() > 0.8 ? 'High' : Math.random() > 0.5 ? 'Moderate' : 'Low',
         asthma: Math.random() > 0.7 ? 'High' : Math.random() > 0.4 ? 'Moderate' : 'Low',
@@ -196,8 +203,8 @@ const TryItNow = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  {Object.entries(results).map(([condition, risk]) => (
-                    <div key={condition} className={`flex justify-between items-center p-4 rounded-lg border-2 ${getRiskColor(risk as string)}`}>
+                  {(Object.entries(results) as [keyof RiskResults, string][]).map(([condition, risk]) => (
+                    <div key={condition} className={`flex justify-between items-center p-4 rounded-lg border-2 ${getRiskColor(risk)}`}>
                       <span className="font-medium text-gray-900 capitalize">
                         {condition.replace(/([A-Z])/g, ' $1').trim()}
                       </span>

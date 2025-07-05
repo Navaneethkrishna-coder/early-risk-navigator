@@ -7,7 +7,7 @@ const AboutSection = () => {
     {
       icon: Brain,
       title: "Machine Learning Models",
-      description: "Our system uses advanced Random Forest and XGBoost algorithms trained on comprehensive health datasets."
+      description: "Our system uses advanced Random Forest algorithms for multi-label classification trained on comprehensive health datasets."
     },
     {
       icon: Database,
@@ -17,12 +17,12 @@ const AboutSection = () => {
     {
       icon: Activity,
       title: "Lifestyle Analysis",
-      description: "Analyzes key indicators including BMI, smoking habits, physical activity, sleep patterns, and medical history."
+      description: "Analyzes key indicators including BMI, smoking habits, physical activity, sleep patterns, and demographic factors."
     },
     {
       icon: Shield,
       title: "Predictive, Not Diagnostic",
-      description: "Provides early risk assessment to help you make informed decisions about your health and lifestyle."
+      description: "Provides early risk assessment to help you make informed decisions about your health and lifestyle choices."
     }
   ];
 
@@ -34,8 +34,8 @@ const AboutSection = () => {
             About the Project
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Our AI-powered health risk prediction system leverages machine learning to analyze lifestyle 
-            and health indicators, providing early insights into chronic disease risks.
+            This web app uses machine learning to predict disease risks from the Heart 2020 BRFSS dataset. 
+            The model is trained using Random Forest for multi-label classification, analyzing lifestyle and health features.
           </p>
         </div>
         
@@ -60,21 +60,25 @@ const AboutSection = () => {
         </div>
         
         <div className="bg-gradient-to-r from-blue-50 to-green-50 rounded-2xl p-8 text-center">
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">
+          <h3 className="text-2xl font-bold text-gray-900 mb-6">
             Key Health Conditions Analyzed
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="bg-white rounded-lg p-4 shadow-sm">
-              <div className="text-red-500 font-semibold">Heart Disease</div>
+            <div className="bg-white rounded-lg p-6 shadow-sm border-l-4 border-red-500">
+              <div className="text-red-600 font-semibold text-lg">Heart Disease</div>
+              <p className="text-gray-600 text-sm mt-1">Cardiovascular risk assessment</p>
             </div>
-            <div className="bg-white rounded-lg p-4 shadow-sm">
-              <div className="text-blue-500 font-semibold">Kidney Disease</div>
+            <div className="bg-white rounded-lg p-6 shadow-sm border-l-4 border-blue-500">
+              <div className="text-blue-600 font-semibold text-lg">Kidney Disease</div>
+              <p className="text-gray-600 text-sm mt-1">Renal function evaluation</p>
             </div>
-            <div className="bg-white rounded-lg p-4 shadow-sm">
-              <div className="text-green-500 font-semibold">Asthma</div>
+            <div className="bg-white rounded-lg p-6 shadow-sm border-l-4 border-green-500">
+              <div className="text-green-600 font-semibold text-lg">Asthma</div>
+              <p className="text-gray-600 text-sm mt-1">Respiratory health analysis</p>
             </div>
-            <div className="bg-white rounded-lg p-4 shadow-sm">
-              <div className="text-purple-500 font-semibold">Skin Cancer</div>
+            <div className="bg-white rounded-lg p-6 shadow-sm border-l-4 border-purple-500">
+              <div className="text-purple-600 font-semibold text-lg">Skin Cancer</div>
+              <p className="text-gray-600 text-sm mt-1">Dermatological risk factors</p>
             </div>
           </div>
         </div>
